@@ -1,12 +1,16 @@
 package edu.hitsz.aircraft;
 
-import edu.hitsz.application.Game;
-import edu.hitsz.application.Main;
 import edu.hitsz.bullet.AbstractBullet;
-import edu.hitsz.prop.InterfaceProp;
 
-import java.util.LinkedList;
 import java.util.List;
 
-public class BossEnemy extends AbstractAircraft {
+public class BossEnemy extends EnemyAircraft {
+    public BossEnemy(int locationX, int locationY, int speedX, int speedY, int hp) {
+        super(locationX, locationY, speedX, speedY, hp);
+    }
+
+    @Override
+    public List<AbstractBullet> shoot() {
+        return null;
+    }
 }
