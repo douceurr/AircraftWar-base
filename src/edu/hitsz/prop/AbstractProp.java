@@ -1,41 +1,21 @@
 package edu.hitsz.prop;
 
 import edu.hitsz.application.Main;
-import edu.hitsz.basic.FlyingObject;
-import java.util.Random;
+import edu.hitsz.basic.AbstractFlyingObject;
+
 
 /**
- * 道具类。
+ * 道具类
  *
  * @author hitsz
  */
 
-public class AbstractProp extends FlyingObject{
+public class AbstractProp extends AbstractFlyingObject {
 
-    private int Random(){
-        Random ran = new Random();
-        int usage = ran.nextInt(3);
-        return usage;
-    }
     public AbstractProp(int locationX, int locationY, int speedX, int speedY) {
         super(locationX, locationY, speedX, speedY);
-        int type = Random();
-        switch(type){
-            case 0:
-                BloodProp bloodProp = new BloodProp(getLocationX(),getLocationY(),speedX,speedY);
-                return;
-            case 1:
-                BombProp bombProp = new BombProp(getLocationX(),getLocationY(),speedX,speedY);
-                return;
-            case 2:
-                BulletProp bulletProp = new BulletProp(getLocationX(),getLocationY(),speedX,speedY);
-                return;
-            default:
-                throw new IllegalStateException("Unexpected value: " + type);
-        }
+
     }
-
-
 
     @Override
     public void forward() {

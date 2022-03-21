@@ -1,8 +1,15 @@
 package edu.hitsz.aircraft;
 
-import edu.hitsz.bullet.AbstractBullet;
+import edu.hitsz.bullet.BaseBullet;
 
 import java.util.List;
+
+/**
+ * BOSS敌机
+ * 可射击
+ *
+ * @author hitsz
+ */
 
 public class BossEnemy extends EnemyAircraft {
     public BossEnemy(int locationX, int locationY, int speedX, int speedY, int hp) {
@@ -10,7 +17,7 @@ public class BossEnemy extends EnemyAircraft {
     }
 
     @Override
-    public List<AbstractBullet> shoot() {
+    public List<BaseBullet> shoot() {
         return null;
     }
 }

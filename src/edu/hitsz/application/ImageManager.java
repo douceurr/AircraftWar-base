@@ -57,8 +57,8 @@ public class ImageManager {
             ENEMY_BULLET_IMAGE = ImageIO.read(new FileInputStream("src/images/bullet_enemy.png"));
 
             BLOOD_PROP_IMAGE = ImageIO.read(new FileInputStream("src/images/prop_blood.png"));
-            BOMB_PROP_IMAGE = ImageIO.read(new FileInputStream("src/images/bomb_blood.png"));
-            BULLET_PROP_IMAGE = ImageIO.read(new FileInputStream("src/images/bullet_blood.png"));
+            BOMB_PROP_IMAGE = ImageIO.read(new FileInputStream("src/images/prop_bomb.png"));
+            BULLET_PROP_IMAGE = ImageIO.read(new FileInputStream("src/images/prop_bullet.png"));
 
             CLASSNAME_IMAGE_MAP.put(HeroAircraft.class.getName(), HERO_IMAGE);
 
