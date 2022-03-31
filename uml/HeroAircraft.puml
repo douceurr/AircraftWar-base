@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractAircraft
+{
+	# axHp:int
+    # hp:int
+    + AbstractAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+    + decreaseHp(int decrease):void
+    + getHp():int
+    + {abstract} shoot():List<BaseBullet>
+ }
+
+class Game{
+}
+
+class HeroAircraft{
+    -{static}heroAircraft:HeroAircraft
+    - shootNum:int
+    - power:int
+    - direction:int
+    - HeroAircraft(int locationX, int locationY, int speedX, int speedY, int hp)
+    +{static}getHeroAircraft():HeroAircraft
+    + forward():void
+    + shoot():List<BaseBullet>
+}
+
+
+Game -> HeroAircraft
+AbstractAircraft <|-- HeroAircraft
+HeroAircraft --> HeroAircraft
+
+@enduml

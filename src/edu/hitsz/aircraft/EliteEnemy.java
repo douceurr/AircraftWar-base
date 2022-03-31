@@ -3,9 +3,11 @@ package edu.hitsz.aircraft;
 import edu.hitsz.application.Main;
 import edu.hitsz.bullet.BaseBullet;
 import edu.hitsz.bullet.EnemyBullet;
+import edu.hitsz.prop.*;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -14,7 +16,7 @@ import java.util.List;
  *
  * @author hitsz
  */
-public class EliteEnemy extends EnemyAircraft{
+public class EliteEnemy extends EnemyAircraft {
     /** 攻击方式 */
     private int shootNum = 1;     //子弹一次发射数量
     private int power = 10;       //子弹伤害
@@ -24,7 +26,50 @@ public class EliteEnemy extends EnemyAircraft{
         super(locationX, locationY, speedX, speedY, hp);
     }
 
+    private int Random() {
+        Random ran = new Random();
+        int tool = ran.nextInt(3);
+        return tool;
+    }
+
+    //创建敌机
     @Override
+    public void createAircraft(){
+        EliteEnemy eliteEnemy = new EliteEnemy (locationX, locationY, speedX, speedY, hp);
+    }
+
+    //创建道具
+    public AbstractProp createProp(){
+        AbstractProp abstractProp = null;
+        switch(Random()) {
+            case 0:
+                abstractProp = new BloodFactory().createPropKind(
+                        getLocationX(),getLocationY(),
+                        0,
+                        1
+                );
+                break;
+            case 1:
+                abstractProp = new BombFactory().createPropKind(
+                        getLocationX(),getLocationY(),
+                        0,
+                        1
+                );
+                break;
+            case 2:
+                abstractProp = new BulletFactory().createPropKind(
+                        getLocationX(),getLocationY(),
+                        0,
+                        1
+                );
+                break;
+            default:
+                abstractProp = null;
+                break;
+        }
+        return abstractProp;
+    };
+
     public void forward() {
         super.forward();
         // 判定 y 轴向下飞行出界
@@ -33,7 +78,6 @@ public class EliteEnemy extends EnemyAircraft{
         }
     }
 
-    @Override
     /**
      * 精英机通过射击产生子弹
      * @return 射击出的子弹List
